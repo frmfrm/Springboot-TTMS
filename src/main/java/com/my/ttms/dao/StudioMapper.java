@@ -98,5 +98,5 @@ public interface StudioMapper {
      */
     int updateByPrimaryKey(Studio record);
 
-    List<Studio> selectByStudioName(String studioname);
+    Studio selectByStudioName(String studioname);
 }

@@ -23,12 +23,12 @@ public class StudioController {
     @Autowired
     private StudioService studioService;
     @PostMapping(value = "/Search")
-    public String studioSearch(String studioname) {
-        List<Studio> studio = studioService.selectByStudioName(studioname);
-        if(studio!= null && studio.size() != 0) {
-        }
-        return "";
-    }
+//    public String studioSearch(String studioname) {
+//        List<Studio> studio = studioService.selectByStudioName(studioname);
+//        if(studio!= null && studio.size() != 0) {
+//        }
+//        return "";
+//    }
     @GetMapping(value = "/Search")
     public String studioSearch() {
         return "studiomain";

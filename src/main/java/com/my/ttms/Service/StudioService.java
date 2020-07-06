@@ -22,7 +22,7 @@ public class StudioService {
 		return studioMapper.insert(studio);
 	}
 
-	public List<Studio> selectByStudioName(String studioname) {
-		return studioMapper.selectByStudioName(studioname);
+	public Studio selectByStudioId(Integer studioname) {
+		return studioMapper.selectByPrimaryKey(studioname);
 	}
 }
