@@ -23,7 +23,6 @@ public class PlayService {
 	}
 
 	public List<Play> selectAll(){
-
 		return  playMapper.selectAll();
 	}
 }

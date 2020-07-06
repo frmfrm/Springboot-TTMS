@@ -1,8 +1,9 @@
 package com.my.ttms.web;
 
+import com.my.ttms.Service.PlayDetailService;
 import com.my.ttms.Service.PlayService;
-import com.my.ttms.Service.StudioService;
 import com.my.ttms.bean.Play;
+import com.my.ttms.bean.Playdetail;
 import com.my.ttms.bean.Studio;
 import com.my.ttms.common.Response;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
@@ -27,13 +28,41 @@ import java.util.List;
 public class PlayController {
     @Autowired
     private PlayService playService;
+    @Autowired
+    private PlayDetailService playDetailService;
 
     @PostMapping(value = "/play/Search")
     @ResponseBody
-    public Response  studioSearch() {
+    public Response studioSearch() {
         Response response = new Response();
         List<Play> plays = playService.selectAll();
-        if(plays!= null && plays.size() != 0) {
+        List<Playdetail> playdetails = playDetailService.selectAll();
+        for (int i = 0; i <plays.size() ; i++) {
+            Play play = plays.get(i);
+            Playdetail playdetail = playdetails.get(i);
+            play.setDirector(playdetail.getDirector());
+            play.setMainactor(playdetail.getMainactor());
+            play.setPlayintro(playdetail.getPlayintro());
+        }
+        if (plays != null && plays.size() != 0) {
+            response.setData(plays);
+        }
+        return response;
+    }
+
+    @PostMapping(value = "/playdeatil/Search")
+    public Response PlaydeatilSearch() {
+        Response response = new Response();
+        List<Play> plays = playService.selectAll();
+        List<Playdetail> playdetails = playDetailService.selectAll();
+        for (int i = 0; i <plays.size() ; i++) {
+            Play play = plays.get(i);
+            Playdetail playdetail = playdetails.get(i);
+            play.setDirector(playdetail.getDirector());
+            play.setMainactor(playdetail.getMainactor());
+            play.setPlayintro(playdetail.getPlayintro());
+        }
+        if (plays != null && plays.size() != 0) {
             response.setData(plays);
         }
         return response;

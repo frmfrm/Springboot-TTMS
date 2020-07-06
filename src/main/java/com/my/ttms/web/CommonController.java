@@ -29,7 +29,7 @@ public class CommonController {
         user.setUserPassword(password);
         System.err.println(name);
         System.err.println(password);
-        User loginUser =  userService.Find(user);
+        User loginUser =  userService.Finduser(2);
         System.err.println(loginUser);
         if(loginUser!=null&&loginUser.getUserPassword().equals(password)) {
             //根据status 鉴权
@@ -37,13 +37,13 @@ public class CommonController {
             if(BOOS.equals(loginUser.getUserStatus())){
                 return "";
             }else if(JL.equals(loginUser.getUserStatus())){
-                return "main";
+                return "/main";
             }else if(GLY.equals(loginUser.getUserStatus())){
                 return "";
             }else if(USER.equals(loginUser.getUserStatus())){
-                return "cplay";
+                return "/cplay";
             }
         }
-            return "index";
+            return "/cplay";
     }
 }

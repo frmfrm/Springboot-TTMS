@@ -93,4 +93,6 @@ public interface SeatMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Seat record);
+
+    List<Seat> selectByStudioId(Integer studioId);
 }

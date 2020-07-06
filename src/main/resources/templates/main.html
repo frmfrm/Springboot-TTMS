@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -159,8 +160,11 @@ a:hover{
 		}
 		if (req.readyState == 4 && req.status == 200) {
 			//alert(req.responseText);
-			var json = req.responseText;//转换为json对象
-			console.log(json);
+			// 转换为json对象
+			var jsondata = JSON.parse(req.responseText);
+			var json = jsondata.data;
+			console.info(jsondata.data);
+			console.info(json[0].playId);
 			//alert(json.length);
 			for(let i = 0,length=json.length;i<length;i++){
 				var div = document.createElement('div');
@@ -171,9 +175,9 @@ a:hover{
 				var h3 = document.createElement('h3');
 				var button = document.createElement('button');
 				a.appendChild(img);
-				img.src = './images/'+json[i].image + '.jpg';
-				a.href = "JINGplaymodifydetail.html?type=modify&id="+json[i].id+'&name='+json[i].name+'&introduction='+json[i].introduction+'&playtype='+json[i].type+'&image='+json[i].image+'&price='+json[i].ticketPrice+'&status='+json[i].status+'&length='+json[i].length;
-				h3.innerHTML = json[i].name;
+				img.src = './images/'+json[i].playImage + '.jpg';
+				a.href = "PlaydetailController?id="+json[i].playId+'&name='+json[i].playName+'&introduction='+json[i].playIntroduction+'&playtype='+json[i].playType+'&image='+json[i].playImage+'&price='+json[i].ticketPrice+'&status='+json[i].playStatus+'&length='+json[i].playLength;
+				h3.innerHTML = json[i].playName;
 				a.appendChild(h3);
 				button.innerHTML = 'x';
 				div.onclick = function(){
@@ -183,7 +187,7 @@ a:hover{
 					var play = document.getElementsByClassName('play');
 					console.log(play[i]);
 					play[i].href = '';
-					del(json[i].id);
+					del(json[i].playId);
 					event.stopPropagation();
 				}
 				div.appendChild(a);

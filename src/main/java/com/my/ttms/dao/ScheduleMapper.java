@@ -1,5 +1,6 @@
 package com.my.ttms.dao;
 
+import com.my.ttms.bean.Play;
 import com.my.ttms.bean.Schedule;
 import com.my.ttms.bean.ScheduleExample;
 import java.util.List;
@@ -93,4 +94,6 @@ public interface ScheduleMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Schedule record);
+
+    List<Schedule> selectByPlayName(Integer playName);
 }

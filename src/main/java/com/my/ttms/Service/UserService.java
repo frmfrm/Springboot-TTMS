@@ -20,21 +20,19 @@ public class UserService {
 	public int adddetail(User user) {
 	return userMapper.insert(user);
 	}
-	public int deleteUser(User user) {
-		return userMapper.deleteByExample(user);
-	}
+
 	public int deleteById(Integer userid) {
 		return userMapper.deleteByPrimaryKey(userid);
 	}
-	
+
 	public int modify(User user) {
 		return userMapper.updateByPrimaryKeySelective(user);
 	}
 
-	public User Find(User user) {
-		return userMapper.selectByUsername(user.getUserName());
+	public User Find(String userName) {
+		return userMapper.selectByUsername(userName);
 	}
-	
+
 	public User Finduser(int userid) {
 		return  userMapper.selectByPrimaryKey(userid);
 	}

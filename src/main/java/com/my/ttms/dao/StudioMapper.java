@@ -97,4 +97,6 @@ public interface StudioMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Studio record);
+
+    List<Studio> selectByStudioName(String studioname);
 }

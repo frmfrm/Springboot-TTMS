@@ -359,4 +359,13 @@
       play_type = #{playType,jdbcType=VARCHAR}
     where play_id = #{playId,jdbcType=INTEGER}
   </update>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from play
+  </select>
 </mapper>
