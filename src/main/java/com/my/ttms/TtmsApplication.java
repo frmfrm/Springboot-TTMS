@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 @MapperScan("com.my.ttms.dao")
-public class  TtmsApplication  implements WebMvcConfigurer {
+public class TtmsApplication implements WebMvcConfigurer {
     public static void main(String[] args) {
         SpringApplication.run(TtmsApplication.class, args);
     }

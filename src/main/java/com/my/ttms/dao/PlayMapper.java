@@ -96,5 +96,4 @@ public interface PlayMapper {
      */
     int updateByPrimaryKey(Play record);
 
-    List<Play> selectAll();
 }

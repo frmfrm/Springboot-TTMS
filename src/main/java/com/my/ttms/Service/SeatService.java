@@ -22,6 +22,10 @@ public class SeatService {
 		return seatMapper.insert(seat);
 	}
 
+	public int updateStatus(Seat seat) {
+		 return seatMapper.updateStatus(seat);
+	}
+
 	public List<Seat>  selectByStudioId(Integer studioId){
 		return  seatMapper.selectByStudioId(studioId);
 	}

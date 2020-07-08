@@ -240,6 +240,7 @@ function check(playid) {
 				//json[i].id + ",\'" + json[i].name + "\'," + json[i].rowCount + "," + json[i].colCount + ",\'" + json[i].introduction +"\'"; 
 				var tmp = json[i].scheduleId + ",\'" + json[i].studioId +"\',\'" +name+"\',\'" + json[i].scheduleTime+"\',\'"+image+"\',\'"+json[i].price+"\'";
 				row.insertCell(4).innerHTML ='<input type="button" class="btn btn-xs btn-primary" value="选座购票" onclick="modify('+ tmp +')" />';
+				row.insertCell(5).innerHTML ='<input type="button" class="btn btn-xs btn-primary" value="限时秒杀" onclick="modify('+ tmp +')" />';
 			}
 		 }
 	}
@@ -278,6 +279,7 @@ function check(playid) {
 				<th>放映厅</th>
 				<th>现价/影院价（元）</th>
 				<th>选座购票</th>
+				<th>限时秒杀</th>
 			</tr>
 
 		</table>

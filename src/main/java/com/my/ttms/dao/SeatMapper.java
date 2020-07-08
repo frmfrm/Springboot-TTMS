@@ -95,4 +95,6 @@ public interface SeatMapper {
     int updateByPrimaryKey(Seat record);
 
     List<Seat> selectByStudioId(Integer studioId);
+
+    int updateStatus(Seat seat);
 }
